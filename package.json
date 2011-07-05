@@ -1,0 +1,12 @@
+{
+	"scripts": {"start": "node ./server/index.js"},
+	"name": "better-backbone",
+	"version": "0.0.1",
+	"description": "Backbone.js with the concept of tables and collections",
+	"author": "Tim Heap <heap.tim@gmail.com>",
+	"dependencies": {
+		"underscore": "",
+		"connect": "",
+		"step": ""
+	}
+}
