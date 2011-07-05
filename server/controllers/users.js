@@ -16,13 +16,24 @@ var Users = Class.extend(Controller, {
 	ajax_list: function() {
 		var page = this.$req.body.page || 0;
 		var count = Math.min(100, Math.max(0, Number(this.$req.body.count) || 10));
-		var users = this.$models.users.slice(page * count, count);
+
+		var length = this.$models.users.length;
+		var start = page * count;
+		var end = start + count;
+		var users = this.$models.users.slice(start, end);
+
 		var ids = users.map(function(user) {
 			return user.get('id');
-		});;
+		});
+		var data = {
+			length: length,
+			pages: Math.ceil(length / count),
+			page: page,
+			docs: ids,
+		};
 
 		this.$res.writeHead(200, {'Content-type': 'application/json'});
-		this.$res.write(JSON.stringify(ids));
+		this.$res.write(JSON.stringify(data));
 		this.$res.end();
 	},
 

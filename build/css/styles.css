@@ -151,6 +151,16 @@ nav#main li a {
   border-bottom: 1px solid;
   padding: 0.1em 0.5em;
 }
+#body-wrapper {
+  position: relative;
+}
+#content {
+  position: absolute;
+  top: 100%;
+  width: 98%;
+  margin: 1em 1% 0px;
+  left: 0px;
+}
 #content p,
 #content table,
 #content ul,

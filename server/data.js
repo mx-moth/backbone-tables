@@ -62,11 +62,6 @@ module.exports.create = function() {
 		new User({id:"quinton", name:"Quinton Aaron", email:"quinton@example.com", groups:['users']}),
 		new User({id:"reino", name:"Reino Aarnio", email:"reino@example.com", groups:['users']}),
 		new User({id:"scott", name:"Scott Aaronson", email:"scott@example.com", groups:['users']}),
-		new User({id:"stuart", name:"Stuart A. Aaronson", email:"stuart@example.com", groups:['users']}),
-		new User({id:"tero", name:"Tero Aarnio", email:"tero@example.com", groups:['users']}),
-		new User({id:"tom", name:"Tom Aage Aarnes", email:"tom@example.com", groups:['users']}),
-		new User({id:"tommy", name:"Tommy Aaron", email:"tommy@example.com", groups:['users']}),
-		new User({id:"tor", name:"Tor Hogne Aarøy", email:"tor@example.com", groups:['users']}),
 		new User({id:"unn", name:"Unn Aarrestad", email:"unn@example.com", groups:['users']})
 	);
 	models.groups = new Collection("Groups");
