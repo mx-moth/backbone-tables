@@ -107,9 +107,6 @@ section {
 body {
   line-height: 1;
 }
-ol, ul {
-  list-style: none;
-}
 blockquote, q {
   quotes: none;
 }
@@ -194,14 +191,17 @@ nav#main li a {
   font-size: 1.6em;
 }
 #content h3 {
-  font-size: 1.6em;
+  font-size: 1.3em;
 }
 #content h4 {
-  font-size: 1.6em;
+  font-size: 1.1em;
 }
 #content h5 {
-  font-size: 1.6em;
+  font-size: 1em;
 }
 #content h6 {
-  font-size: 1.6em;
+  font-size: 1em;
+}
+#content ul, #content ol {
+  margin-left: 2em;
 }

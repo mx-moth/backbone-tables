@@ -64,17 +64,31 @@ module.exports.create = function() {
 		new User({id:"scott", name:"Scott Aaronson", email:"scott@example.com", groups:['users']}),
 		new User({id:"unn", name:"Unn Aarrestad", email:"unn@example.com", groups:['users']})
 	);
+
 	models.groups = new Collection("Groups");
+
+	var admins = models.users.filter(function(user) {
+		return user.get('groups').indexOf('admin') !== -1;
+	}).map(function(user) {
+		return user.get('id');
+	});
+
+	var users = models.users.filter(function(user) {
+		return user.get('groups').indexOf('users') !== -1;
+	}).map(function(user) {
+		return user.get('id');
+	});
+
 	models.groups.push(
 		new Group({
 			id: 'admin',
 			name: 'Administrators',
-			users: ['tim'],
+			users: admins,
 		}),
 		new Group({
 			id: 'users',
 			name: 'Users',
-			users: ['tim', 'emma'],
+			users: users,
 		})
 	);
 

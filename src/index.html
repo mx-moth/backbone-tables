@@ -20,11 +20,55 @@
 	<section id="content" role="content"></section>
 	<nav id="main">
 		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/groups">Groups</a></li>
-			<li><a href="/users">Users</a></li>
+			<li><a href="#">Home</a></li>
+			<li><a href="#groups">Groups</a></li>
+			<li><a href="#users">Users</a></li>
 		</ul>
 	</nav>
 </div>
+
+<script type="text/template" class="template user-list">
+	<h2>Users</h2>
+	<p><button class="prev">Previous</button> <button class="next">Next</button></p>
+	<p>Page <%= (page + 1) %> of <%= pages %></p>
+	<ul>
+		<% _.each(users, function(user) { %>
+			<li><a href="#users/<%= user.id %>"><%= user.name %></a></li>
+		<% }); %>
+	</ul>
+</script>
+
+<script type="text/template" class="template user-view">
+	<h2>User: <%= name %></h2>
+	<p><strong>Username:</strong> <%= id %></p>
+	<p><strong>Email:</strong> <a href="mailto:<%= email %>"><%= email %></a></p>
+	<h3>Groups</h3>
+	<ul>
+		<% _.each(groups, function(group) { %>
+			<li><a href="#groups/<%= group %>"><%= group %></a></li>
+		<% }); %>
+	</ul>
+</script>
+
+<script type="text/template" class="template group-list">
+	<h2>Groups</h2>
+	<p><button class="prev">Previous</button> <button class="next">Next</button></p>
+	<p>Page <%= (page + 1) %> of <%= pages %></p>
+	<ul>
+		<% _.each(groups, function(group) { %>
+			<li><a href="#groups/<%= group.id %>"><%= group.name %></a></li>
+		<% }); %>
+	</ul>
+</script>
+
+<script type="text/template" class="template group-view">
+	<h2>Group: <%= name %></h2>
+	<h3>Members</h3>
+	<ul>
+		<% _.each(users, function(user) { %>
+			<li><a href="#users/<%= user %>"><%= user %></a></li>
+		<% }); %>
+	</ul>
+</script>
 </body>
 </html>

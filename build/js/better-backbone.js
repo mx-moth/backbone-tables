@@ -263,7 +263,8 @@ _.extend(Backbone.Table.prototype, Backbone.Events, {
 		options = _.clone(options);
 		var success = options.success;
 		options.success = function(docs) {
-			success && success(docs.pop());
+			console.log("get success:", arguments);
+			success && success(docs.at(0));
 		};
 
 		return this.getAll([id], options);

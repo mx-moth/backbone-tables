@@ -13,5 +13,29 @@ var Groups = Class.extend(Controller, {
 		this.$res.end();
 	},
 
+	ajax_list: function() {
+		var page = this.$req.body.page || 0;
+		var count = Math.min(100, Math.max(0, Number(this.$req.body.count) || 10));
+
+		var length = this.$models.groups.length;
+		var start = page * count;
+		var end = start + count;
+		var groups = this.$models.groups.slice(start, end);
+
+		var ids = groups.map(function(group) {
+			return group.get('id');
+		});
+		var data = {
+			length: length,
+			pages: Math.ceil(length / count),
+			page: page,
+			docs: ids,
+		};
+
+		this.$res.writeHead(200, {'Content-type': 'application/json'});
+		this.$res.write(JSON.stringify(data));
+		this.$res.end();
+	},
+
 });
 module.exports.Groups = Groups;
